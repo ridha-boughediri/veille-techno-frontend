@@ -1,15 +1,14 @@
-<!-- ParentComponent.vue -->
 <template>
-  <div class="p-4 flex flex-col items-center">
-    <h1 class="text-3xl font-bold mb-4">Todo List</h1>
-    <div class="mb-4 flex">
+  <div class="flex flex-col items-center p-4 w-96">
+    <h1 class="mb-4 text-3xl font-bold">Todo List</h1>
+    <div class="flex mb-4">
       <input
         v-model="newList.name"
         @keyup.enter="addList"
         placeholder="Rajouter une liste"
-        class="p-2 border rounded"
+        class="p-2 border rounded "
       />
-      <button @click="addList" class="p-2 ml-2 bg-green-500 text-white rounded">
+      <button @click="addList" class="p-2 ml-2 text-white bg-green-500 rounded">
         Ajouter
       </button>
     </div>
@@ -19,20 +18,20 @@
 
 
   <div class="bg-neutral-200">
-        <ul class="mt-4 grid grid-cols-3 gap-4">
+        <ul class="grid h-full grid-cols-3 gap-4 mt-4 w-60">
           <li
             v-for="(list, index) in lists"
             :key="index"
-            class="border-2 border-indigo-600 p-4 h-96 bg-green-300"
+            class="p-4 bg-green-300 border-2 border-indigo-600 h-96"
           >
             <Todo :listName="list.name" :items="list.items" />
 
 
-            <div class="flex content-end items-end">
+            <div class="flex items-end content-end">
 
 
-            <button @click="updateItem(index)" class="bg-blue-500 text-white p-2 mx-2 rounded">Modifier</button>
-          <button @click="removeList(index)" class="bg-red-500 text-white p-2 rounded">Supprimer</button>
+            <button @click="updateItem(index)" class="p-2 mx-2 text-white bg-blue-500 rounded">Modifier</button>
+          <button @click="removeList(index)" class="p-2 text-white bg-red-500 rounded">Supprimer</button>
             </div>
             
 

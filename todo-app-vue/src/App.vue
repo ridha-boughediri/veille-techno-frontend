@@ -1,22 +1,10 @@
-<template>
-  <div id="app">
-    <Header />
-  </div>
-</template>
 
-<script>
-import Header from './components/Header.vue'
+<script setup>
 
-export default {
-  name: 'App',
-  components: {
-    Header,
-
-  },
-};
+import Navbar from './components/Navbar.vue';
 </script>
 
-<style>
-
-
-</style>
+<template>
+  <Navbar />
+  <RouterView />
+</template>
