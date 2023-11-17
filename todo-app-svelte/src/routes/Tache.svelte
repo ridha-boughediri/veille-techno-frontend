@@ -23,6 +23,8 @@
     }
   }
 
+  console.log("les taches sont la".taches);
+
   function removeTask(id) {
     taches = taches.filter((task) => task.id !== id);
     dispatch("taskRemoved", { taches });

@@ -18,18 +18,19 @@
   let input = "";
   let list = [];
 
-  let updatingTask = null; // Keep track of the task being updated
+  let updatingTask = null;
 
   const handleSubmit = () => {
     if (input.trim() !== "") {
       if (updatingTask) {
-        // Update the existing task
+        // modifier
         list = list.map((todo) =>
           todo.id === updatingTask.id ? { ...todo, text: input } : todo
         );
-        updatingTask = null; // Reset updatingTask after updating
+        updatingTask = null; //remodif
       } else {
-        // Add a new task
+        // ajouter une
+
         list = [...list, { id: Date.now(), text: input, completed: false }];
       }
       input = "";
@@ -38,22 +39,27 @@
 
   const handleDelete = (id) => {
     list = list.filter((todo) => todo.id !== id);
+    console.log("1", todo);
   };
 
   const handleToggle = (id) => {
     list = list.map((todo) =>
       todo.id === id ? { ...todo, completed: !todo.completed } : todo
     );
+    console.log("2", todo);
   };
 
   const handleEdit = (id) => {
     updatingTask = list.find((todo) => todo.id === id);
     input = updatingTask.text;
+    console.log("3", todo);
   };
+
+  console.log(list);
 </script>
 
 <div class="flex flex-col items-center justify-center h-70">
-  <h1 class="text-3xl font-bold">Todo List</h1>
+  <h1 class="text-3xl font-bold">KANBAN Board</h1>
   <div class="flex mb-4">
     <form on:submit={handleSubmit}>
       <input
@@ -87,7 +93,7 @@
             </button>
             <button
               on:click={() => handleDelete(id)}
-              class="p-2 mx-2 text-white bg-red-500 rounded"
+              class="w-40 p-2 mx-2 text-white bg-red-500 rounded"
             >
               Supprimer
             </button>
